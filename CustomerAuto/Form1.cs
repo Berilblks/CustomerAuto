@@ -16,6 +16,8 @@ namespace CustomerAuto
         private void Form1_Load(object sender, EventArgs e)
         {
             dataView();
+            dataGridView1.ClearSelection();
+            textBoxCustomerID.Text = "0";
         }
 
         private void dataView()
@@ -41,6 +43,18 @@ namespace CustomerAuto
                 if (connection != null)
                     connection.Close();
             }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedRow = dataGridView1.SelectedCells[0].RowIndex;
+            textBoxCustomerID.Text = dataGridView1.Rows[selectedRow].Cells[0].Value.ToString();
+            textBoxName.Text = dataGridView1.Rows[selectedRow].Cells[1].Value.ToString();
+            textBoxSurname.Text = dataGridView1.Rows[selectedRow].Cells[2].Value.ToString();
+            textBoxIncome.Text = dataGridView1.Rows[selectedRow].Cells[3].Value.ToString();
+            textBoxLoan.Text = dataGridView1.Rows[selectedRow].Cells[4].Value.ToString();
+            textBoxAdress.Text = dataGridView1.Rows[selectedRow].Cells[5].Value.ToString();
+
         }
     }
 }
