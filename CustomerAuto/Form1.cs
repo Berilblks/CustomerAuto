@@ -144,7 +144,7 @@ namespace CustomerAuto
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            if(textBoxCustomerID.Text.Equals("0"))
+            if (textBoxCustomerID.Text.Equals("0"))
             {
                 MessageBox.Show("Please select a customer to Update.");
                 return;
@@ -184,6 +184,75 @@ namespace CustomerAuto
                 dataView();
                 clear();
             }
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT * FROM Costumers WHERE Name LIKE '" + textBoxName.Text + "%'"
+                                                    + " AND Surname LIKE '" + textBoxSurname.Text + "%'"
+                                                    + " AND Adress LIKE '" + textBoxAdress.Text + "%'";
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = dataTable;
+                }
+                else
+                {
+                    MessageBox.Show("No matching records found.");
+                }
+                dataGridView1.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while searching the customer, ErrorCode:H005\n " + ex.Message);
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Close();
+            }
+        }
+
+        private void buttonSearchLoan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT * FROM Costumers WHERE MonthlyIncome = " + textBoxIncome.Text;
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = dataTable;
+                }
+                else
+                {
+                    MessageBox.Show("No matching records found.");
+                }
+                dataGridView1.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while searching the customer, ErrorCode:H006\n " + ex.Message);
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Close();
+            }
+        }
+
+        private void buttonAll_Click(object sender, EventArgs e)
+        {
+            dataView();
         }
     }
 }

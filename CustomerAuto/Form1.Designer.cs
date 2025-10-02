@@ -31,6 +31,9 @@
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            buttonSearchLoan = new Button();
+            buttonSearch = new Button();
+            buttonUpdate = new Button();
             buttonCustomerDelete = new Button();
             buttonClear = new Button();
             buttonAdd = new Button();
@@ -46,7 +49,7 @@
             textBoxName = new TextBox();
             textBoxSurname = new TextBox();
             textBoxCustomerID = new TextBox();
-            buttonUpdate = new Button();
+            buttonAll = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -76,6 +79,9 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(buttonAll);
+            panel2.Controls.Add(buttonSearchLoan);
+            panel2.Controls.Add(buttonSearch);
             panel2.Controls.Add(buttonUpdate);
             panel2.Controls.Add(buttonCustomerDelete);
             panel2.Controls.Add(buttonClear);
@@ -97,9 +103,39 @@
             panel2.Size = new Size(1093, 246);
             panel2.TabIndex = 1;
             // 
+            // buttonSearchLoan
+            // 
+            buttonSearchLoan.Location = new Point(707, 90);
+            buttonSearchLoan.Name = "buttonSearchLoan";
+            buttonSearchLoan.Size = new Size(291, 42);
+            buttonSearchLoan.TabIndex = 17;
+            buttonSearchLoan.Text = "Search from Loan";
+            buttonSearchLoan.UseVisualStyleBackColor = true;
+            buttonSearchLoan.Click += buttonSearchLoan_Click;
+            // 
+            // buttonSearch
+            // 
+            buttonSearch.Location = new Point(707, 31);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new Size(291, 42);
+            buttonSearch.TabIndex = 16;
+            buttonSearch.Text = "Search from name, surname, adress";
+            buttonSearch.UseVisualStyleBackColor = true;
+            buttonSearch.Click += buttonSearch_Click;
+            // 
+            // buttonUpdate
+            // 
+            buttonUpdate.Location = new Point(461, 163);
+            buttonUpdate.Name = "buttonUpdate";
+            buttonUpdate.Size = new Size(161, 42);
+            buttonUpdate.TabIndex = 15;
+            buttonUpdate.Text = "Update ";
+            buttonUpdate.UseVisualStyleBackColor = true;
+            buttonUpdate.Click += buttonUpdate_Click;
+            // 
             // buttonCustomerDelete
             // 
-            buttonCustomerDelete.Location = new Point(461, 141);
+            buttonCustomerDelete.Location = new Point(461, 115);
             buttonCustomerDelete.Name = "buttonCustomerDelete";
             buttonCustomerDelete.Size = new Size(161, 42);
             buttonCustomerDelete.TabIndex = 14;
@@ -109,7 +145,7 @@
             // 
             // buttonClear
             // 
-            buttonClear.Location = new Point(461, 86);
+            buttonClear.Location = new Point(461, 64);
             buttonClear.Name = "buttonClear";
             buttonClear.Size = new Size(161, 42);
             buttonClear.TabIndex = 13;
@@ -119,7 +155,7 @@
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(461, 31);
+            buttonAdd.Location = new Point(461, 13);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(161, 42);
             buttonAdd.TabIndex = 12;
@@ -226,15 +262,15 @@
             textBoxCustomerID.Size = new Size(231, 27);
             textBoxCustomerID.TabIndex = 0;
             // 
-            // buttonUpdate
+            // buttonAll
             // 
-            buttonUpdate.Location = new Point(671, 31);
-            buttonUpdate.Name = "buttonUpdate";
-            buttonUpdate.Size = new Size(161, 42);
-            buttonUpdate.TabIndex = 15;
-            buttonUpdate.Text = "Update ";
-            buttonUpdate.UseVisualStyleBackColor = true;
-            buttonUpdate.Click += buttonUpdate_Click;
+            buttonAll.Location = new Point(707, 152);
+            buttonAll.Name = "buttonAll";
+            buttonAll.Size = new Size(291, 42);
+            buttonAll.TabIndex = 18;
+            buttonAll.Text = "Show all customers";
+            buttonAll.UseVisualStyleBackColor = true;
+            buttonAll.Click += buttonAll_Click;
             // 
             // Form1
             // 
@@ -274,5 +310,8 @@
         private Button buttonClear;
         private Button buttonCustomerDelete;
         private Button buttonUpdate;
+        private Button buttonSearch;
+        private Button buttonSearchLoan;
+        private Button buttonAll;
     }
 }
