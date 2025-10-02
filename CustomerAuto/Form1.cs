@@ -109,5 +109,35 @@ namespace CustomerAuto
         {
             clear();
         }
+
+        private void buttonCustomerDelete_Click(object sender, EventArgs e)
+        {
+            if (textBoxCustomerID.Text.Equals("0"))
+            {
+                MessageBox.Show("Please select a customer to delete.");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand sqlCommand = new SqlCommand("DELETE FROM Costumers WHERE CustomerID=@P1", connection);
+                    sqlCommand.Parameters.AddWithValue("@P1", textBoxCustomerID.Text);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while delete the customer, ErrorCode:H003\n " + ex.Message);
+                }
+                finally
+                {
+                    if (connection != null)
+                        connection.Close();
+                }
+            }
+            dataView();
+            clear();
+        }
     }
 }

@@ -31,6 +31,7 @@
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            buttonClear = new Button();
             buttonAdd = new Button();
             label6 = new Label();
             label5 = new Label();
@@ -44,7 +45,7 @@
             textBoxName = new TextBox();
             textBoxSurname = new TextBox();
             textBoxCustomerID = new TextBox();
-            buttonClear = new Button();
+            buttonCustomerDelete = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -74,6 +75,7 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(buttonCustomerDelete);
             panel2.Controls.Add(buttonClear);
             panel2.Controls.Add(buttonAdd);
             panel2.Controls.Add(label6);
@@ -93,11 +95,21 @@
             panel2.Size = new Size(1093, 246);
             panel2.TabIndex = 1;
             // 
+            // buttonClear
+            // 
+            buttonClear.Location = new Point(461, 86);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(161, 42);
+            buttonClear.TabIndex = 13;
+            buttonClear.Text = "Clear";
+            buttonClear.UseVisualStyleBackColor = true;
+            buttonClear.Click += buttonClear_Click;
+            // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(458, 64);
+            buttonAdd.Location = new Point(461, 31);
             buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(119, 42);
+            buttonAdd.Size = new Size(161, 42);
             buttonAdd.TabIndex = 12;
             buttonAdd.Text = "Add";
             buttonAdd.UseVisualStyleBackColor = true;
@@ -202,15 +214,15 @@
             textBoxCustomerID.Size = new Size(231, 27);
             textBoxCustomerID.TabIndex = 0;
             // 
-            // buttonClear
+            // buttonCustomerDelete
             // 
-            buttonClear.Location = new Point(458, 119);
-            buttonClear.Name = "buttonClear";
-            buttonClear.Size = new Size(119, 42);
-            buttonClear.TabIndex = 13;
-            buttonClear.Text = "Clear";
-            buttonClear.UseVisualStyleBackColor = true;
-            buttonClear.Click += buttonClear_Click;
+            buttonCustomerDelete.Location = new Point(461, 141);
+            buttonCustomerDelete.Name = "buttonCustomerDelete";
+            buttonCustomerDelete.Size = new Size(161, 42);
+            buttonCustomerDelete.TabIndex = 14;
+            buttonCustomerDelete.Text = "Customer Delete";
+            buttonCustomerDelete.UseVisualStyleBackColor = true;
+            buttonCustomerDelete.Click += buttonCustomerDelete_Click;
             // 
             // Form1
             // 
@@ -248,5 +260,6 @@
         private Label label6;
         private Button buttonAdd;
         private Button buttonClear;
+        private Button buttonCustomerDelete;
     }
 }
