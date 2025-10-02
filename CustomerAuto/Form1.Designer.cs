@@ -31,6 +31,7 @@
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            buttonAdd = new Button();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -43,6 +44,7 @@
             textBoxName = new TextBox();
             textBoxSurname = new TextBox();
             textBoxCustomerID = new TextBox();
+            buttonClear = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -72,6 +74,8 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(buttonClear);
+            panel2.Controls.Add(buttonAdd);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
@@ -88,6 +92,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1093, 246);
             panel2.TabIndex = 1;
+            // 
+            // buttonAdd
+            // 
+            buttonAdd.Location = new Point(458, 64);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(119, 42);
+            buttonAdd.TabIndex = 12;
+            buttonAdd.Text = "Add";
+            buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
             // 
             // label6
             // 
@@ -153,6 +167,7 @@
             // 
             // textBoxLoan
             // 
+            textBoxLoan.Enabled = false;
             textBoxLoan.Location = new Point(193, 145);
             textBoxLoan.Name = "textBoxLoan";
             textBoxLoan.Size = new Size(231, 27);
@@ -186,6 +201,16 @@
             textBoxCustomerID.Name = "textBoxCustomerID";
             textBoxCustomerID.Size = new Size(231, 27);
             textBoxCustomerID.TabIndex = 0;
+            // 
+            // buttonClear
+            // 
+            buttonClear.Location = new Point(458, 119);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(119, 42);
+            buttonClear.TabIndex = 13;
+            buttonClear.Text = "Clear";
+            buttonClear.UseVisualStyleBackColor = true;
+            buttonClear.Click += buttonClear_Click;
             // 
             // Form1
             // 
@@ -221,5 +246,7 @@
         private Label label4;
         private Label label3;
         private Label label6;
+        private Button buttonAdd;
+        private Button buttonClear;
     }
 }
