@@ -1,6 +1,8 @@
 using System.Data;
 using System.Data.SqlClient;
 
+// CRUD : Create Read Update Delete 
+
 namespace CustomerAuto
 {
     public partial class Form1 : Form
@@ -114,7 +116,7 @@ namespace CustomerAuto
         {
             if (textBoxCustomerID.Text.Equals("0"))
             {
-                MessageBox.Show("Please select a customer to delete.");
+                MessageBox.Show("Please select a customer to Delete.");
                 return;
             }
             else
@@ -138,6 +140,50 @@ namespace CustomerAuto
             }
             dataView();
             clear();
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            if(textBoxCustomerID.Text.Equals("0"))
+            {
+                MessageBox.Show("Please select a customer to Update.");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand sqlCommand = new SqlCommand("UPDATE Costumers SET Name = @P1, " +
+                                       "Surname = @P2, MonthlyIncome = @P3, SuitableLoan = @P4, Adress = @P5 " +
+                                       "WHERE CustomerID = @P6", connection);
+                    sqlCommand.Parameters.AddWithValue("@P1", textBoxName.Text);
+                    sqlCommand.Parameters.AddWithValue("@P2", textBoxSurname.Text);
+                    sqlCommand.Parameters.AddWithValue("@P3", textBoxIncome.Text);
+                    if (Convert.ToInt32(textBoxIncome.Text) >= 10000)
+                    {
+                        sqlCommand.Parameters.AddWithValue("@P4", 1);
+                    }
+                    else
+                    {
+                        sqlCommand.Parameters.AddWithValue("@P4", 0);
+                    }
+                    sqlCommand.Parameters.AddWithValue("@P5", textBoxAdress.Text);
+                    sqlCommand.Parameters.AddWithValue("@P6", textBoxCustomerID.Text);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while update the customer, ErrorCode:H004\n " + ex.Message);
+                }
+                finally
+                {
+                    if (connection != null)
+                        connection.Close();
+                }
+                dataView();
+                clear();
+            }
         }
     }
 }

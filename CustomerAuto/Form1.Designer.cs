@@ -31,6 +31,7 @@
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            buttonCustomerDelete = new Button();
             buttonClear = new Button();
             buttonAdd = new Button();
             label6 = new Label();
@@ -45,7 +46,7 @@
             textBoxName = new TextBox();
             textBoxSurname = new TextBox();
             textBoxCustomerID = new TextBox();
-            buttonCustomerDelete = new Button();
+            buttonUpdate = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -75,6 +76,7 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(buttonUpdate);
             panel2.Controls.Add(buttonCustomerDelete);
             panel2.Controls.Add(buttonClear);
             panel2.Controls.Add(buttonAdd);
@@ -94,6 +96,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1093, 246);
             panel2.TabIndex = 1;
+            // 
+            // buttonCustomerDelete
+            // 
+            buttonCustomerDelete.Location = new Point(461, 141);
+            buttonCustomerDelete.Name = "buttonCustomerDelete";
+            buttonCustomerDelete.Size = new Size(161, 42);
+            buttonCustomerDelete.TabIndex = 14;
+            buttonCustomerDelete.Text = "Customer Delete";
+            buttonCustomerDelete.UseVisualStyleBackColor = true;
+            buttonCustomerDelete.Click += buttonCustomerDelete_Click;
             // 
             // buttonClear
             // 
@@ -214,15 +226,15 @@
             textBoxCustomerID.Size = new Size(231, 27);
             textBoxCustomerID.TabIndex = 0;
             // 
-            // buttonCustomerDelete
+            // buttonUpdate
             // 
-            buttonCustomerDelete.Location = new Point(461, 141);
-            buttonCustomerDelete.Name = "buttonCustomerDelete";
-            buttonCustomerDelete.Size = new Size(161, 42);
-            buttonCustomerDelete.TabIndex = 14;
-            buttonCustomerDelete.Text = "Customer Delete";
-            buttonCustomerDelete.UseVisualStyleBackColor = true;
-            buttonCustomerDelete.Click += buttonCustomerDelete_Click;
+            buttonUpdate.Location = new Point(671, 31);
+            buttonUpdate.Name = "buttonUpdate";
+            buttonUpdate.Size = new Size(161, 42);
+            buttonUpdate.TabIndex = 15;
+            buttonUpdate.Text = "Update ";
+            buttonUpdate.UseVisualStyleBackColor = true;
+            buttonUpdate.Click += buttonUpdate_Click;
             // 
             // Form1
             // 
@@ -261,5 +273,6 @@
         private Button buttonAdd;
         private Button buttonClear;
         private Button buttonCustomerDelete;
+        private Button buttonUpdate;
     }
 }
